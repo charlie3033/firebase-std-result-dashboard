@@ -1,1 +1,50 @@
-<p>dash works!</p>
+<div class="dashboard-container">
+
+  <!-- sidebar -->
+  <div class="sidebar">
+    <h1>Admin Panel</h1>
+    <button [class.active]="selectedTab==='dashboard'" (click)="selectedTab='dashboard'">Dashboard</button>
+    <button [class.active]="selectedTab==='student'" (click)="selectedTab='student'">Manage Students</button>
+    <button [class.active]="selectedTab==='grade'" (click)="selectedTab='grade'">Manage Grades</button>
+    <!-- <button [class.active]="selectedTab==='exportAll'" (click)="exportAll()">Export Whole Data</button> -->
+    <button [class.active]="selectedTab==='activity'" (click)="selectedTab='activity'">Activity Log</button>
+  </div>
+
+  <!-- Tost notifications -->
+
+
+  <!-- main -->
+  <div class="main">
+    <header class="header">
+        <h2 id="page-title">Admin Dashboard</h2>
+        <div class="header-action">
+          <button class="logOut-btn">Log Out</button>
+        </div>
+    </header>
+    <!-- dashboard stats -->
+    <div *ngIf="selectedTab==='dashboard'"class="card">
+      <h2>Dashboard Overview</h2>
+      <div class="stats-grid">
+        <div class="stat-card">  <!-- students -->
+          <h3>{{stats.totalStudents}}</h3>
+          <p>Total Students</p>
+        </div>
+        <div class="stat-card">   <!-- departments -->
+          <h3>{{stats.totalDepartments}}</h3>
+          <p>Total Departments</p>
+        </div>
+        <div class="stat-card">   <!-- grades -->
+          <!-- <h3>{{stats.pendingGrades}}</h3> -->
+          <p>Pending Grades</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- manage students -->
+    <div *ngIf="selectedTab==='student'" class="card">
+
+    </div>
+
+
+  </div>
+</div>

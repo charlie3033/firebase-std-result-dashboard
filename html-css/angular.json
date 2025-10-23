@@ -3,28 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "admin-dashboard": {
+    "html-css": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:directive": {
-          "type": "directive"
-        },
-        "@schematics/angular:service": {
-          "type": "service"
-        },
-        "@schematics/angular:interceptor": {
-          "typeSeparator": "."
-        },
-        "@schematics/angular:module": {
-          "typeSeparator": "."
-        },
-        "@schematics/angular:pipe": {
-          "typeSeparator": "."
-        },
-        "@schematics/angular:resolver": {
-          "typeSeparator": "."
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -43,7 +24,6 @@
             "styles": [
               "src/styles.css"
             ]
-
           },
           "configurations": {
             "production": {
@@ -73,10 +53,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "admin-dashboard:build:production"
+              "buildTarget": "html-css:build:production"
             },
             "development": {
-              "buildTarget": "admin-dashboard:build:development"
+              "buildTarget": "html-css:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,6 +83,6 @@
     }
   },
   "cli": {
-    "analytics": "b6de1169-39ea-485a-adbc-a83a242d0d7f"
+    "analytics": "4663aefc-93f6-4df1-9e95-ddf1ba97684c"
   }
 }
