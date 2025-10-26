@@ -18,4 +18,14 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/all", async (req, res)=>{
+  try{
+    const courses = await Course.find();
+    res.json(courses || []);
+  }catch(err){
+    console.error("Error fetching courses:", err);
+    res.status(500).json({ error: "Server error", details: err.message });
+  }
+});
+
 module.exports = router;

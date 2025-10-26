@@ -60,8 +60,12 @@ export class StudentService {
     return this.http.get<any[]>(`${this.baseUrl}/courses?department=${dept}$semester=${semester}`);
   }
 
+  getAllCourses(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/courses/all`);
+  }
+
   //activity log
-  getActivityLogs(){
+  getActivityLogs(): Observable<any[]>{
     return this.http.get<any[]>(`${this.baseUrl}/activity-log`);
   }
 

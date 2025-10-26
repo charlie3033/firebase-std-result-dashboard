@@ -1062,3 +1062,59 @@ margin-bottom: 10px;
 .pending-btn:checked + .slider:before {
   transform: translateX(22px);
 }
+
+
+
+
+
+
+
+.dept-course-container {
+  padding: 20px;
+}
+
+.department-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.department-card h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.course-table th, .course-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.course-table th {
+  background-color: #f8f9fa;
+  text-align: left;
+}
+
+.no-course {
+  font-style: italic;
+  color: #777;
+}
+
+.semester-block {
+  margin-top: 15px;
+  background: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.semester-block h4 {
+  margin-bottom: 8px;
+  color: #444;
+}

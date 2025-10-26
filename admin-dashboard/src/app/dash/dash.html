@@ -309,8 +309,11 @@
 
             <div class="form-group">
             <label>Semester</label>
-            <input type="number" name="semester" [(ngModel)]="newStudent.semester" min="1" max="8" required />
-          </div>
+            <select name="semester" required>
+              <option value="1" selected>1</option>
+              <option value="2" >2</option>
+            </select>
+            </div>
 
           <div class="form-actions">
             <button type="submit" class="add-form-btn success" [disabled]="studentForm.invalid">💾 Save Student</button>
@@ -382,10 +385,15 @@
             </option>
           </select>
         </div>
+
         <div class="form-group">
           <label>Semester</label>
-          <input type="number" name="editSem" [(ngModel)]="editInfoStudent.semester" min="1" max="8" required />
+          <select name="editSem" [(ngModel)]="editInfoStudent.semester" required>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+          </select>
         </div>
+
         <div class="form-group">
           <label>Email</label>
           <input type="email" name="email" readonly [(ngModel)]="editInfoStudent.email" disabled/>
@@ -526,37 +534,44 @@
 
   <!-- ---------Departments & courses----------- -->
   <div *ngIf="selectedTab==='dept'" class="tab">
-    <h2 class="section-title">Departments & Courses</h2>
-
+    <div class="main-header">
+        <h2>Departments & Courses</h2>
+        <p>Log of activities performed by admins</p>
+    </div>
+      <div class="std-card">
       <div *ngIf="departments.length === 0">
         <p>No departments found.</p>
       </div>
 
     <div *ngFor="let dept of departments" class="department-card">
-      <h3>{{ dept.name || dept }}</h3>
+      <h3>{{ dept.name }}</h3>
 
-      <div *ngIf="getCoursesByDept(dept.name || dept).length > 0; else noCourses">
-        <table class="course-table">
-          <thead>
-            <tr>
-              <th>Code</th>
-              <th>Course Name</th>
-              <th>Semester</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let c of getCoursesByDept(dept.name || dept)">
-              <td>{{ c.code }}</td>
-              <td>{{ c.name }}</td>
-              <td>{{ c.semester }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div *ngFor="let sem of [1, 2]" class="semester-block">
+        <h4>Semester {{ sem }}</h4>
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Course Name</th>
+                <th>Semester</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of getCoursesByDeptAndSem(dept.name, sem)">
+                <td>{{ c.code }}</td>
+                <td>{{ c.name }}</td>
+                <td>{{ c.semester }}</td>
+              </tr>
+            </tbody>
+          </table>
+
       </div>
+
 
       <ng-template #noCourses>
         <p class="no-course">No courses found for this department.</p>
       </ng-template>
+    </div>
     </div>
   </div>
 

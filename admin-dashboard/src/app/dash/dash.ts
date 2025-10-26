@@ -61,6 +61,8 @@ export class Dash implements OnInit {
 
   isPendingEnabled: boolean = false;
 
+  courses: any[] = [];
+
   constructor(private studentService: StudentService, private cdr: ChangeDetectorRef,private http: HttpClient,private router: Router) {}
 
   ngOnInit() {
@@ -69,6 +71,7 @@ export class Dash implements OnInit {
     this.loadDepartments();
     this.loadStudents();
     this.pendingGrades();
+    this.loadCourses();
     forkJoin({
       students: this.studentService.getAllStudents(),
       departments: this.studentService.getDepartments()
@@ -520,6 +523,23 @@ isGradePending(student: any): boolean {
 toggleStatus() {
   this.cdr.detectChanges();
 }
+
+// department-courses
+loadCourses(){
+  this.studentService.getAllCourses().subscribe(data => {
+    this.courses = data || [];
+    console.log(this.courses);
+  });
+}
+
+getCoursesByDeptAndSem(dept: string, sem: number){
+  return this.courses.filter(
+    c => c.department === dept && c.semester === sem);
+}
+
+
+
+
 
 }
 
