@@ -8,7 +8,7 @@
       <div class="login-container">
       <h2>Student Login</h2>
       <form id="loginForm" (ngSubmit)="login()">
-        <input [(ngModel)]="email" name="email" placeholder="Email" required id="email"/>
+        <input [(ngModel)]="email" type="email" name="email" placeholder="Email" required id="email"/>
         <input [(ngModel)]="password" id="password" name="password" type="password" placeholder="Password" required />
         <button type="submit">Login</button>
       </form>
@@ -20,6 +20,8 @@
         <ul class="note-list">
           <li>password will be combination of :-</li>
           <p>Students ( FirstName LastName RollNo.)</p>
+          <li>No Space in between letters</li>
+          <li>Password is caseSensitive</li>
         </ul>
       </div>
     </div>

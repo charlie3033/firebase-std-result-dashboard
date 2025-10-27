@@ -1,0 +1,35 @@
+.result-container {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.status-pass {
+  color: green;
+  font-weight: bold;
+}
+
+.status-fail {
+  color: red;
+  font-weight: bold;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+button {
+  margin-right: 10px;
+  padding: 6px 12px;
+}

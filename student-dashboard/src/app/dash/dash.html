@@ -1,1 +1,133 @@
-<p>dash works!</p>
+<div class="dashboard-container">
+
+  <!-- sidebar -->
+  <div class="sidebar">
+    <!-- logo -->
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+          <span class="logo-text">Student Panel</span>
+      </div>
+    </div>
+
+    <!-- navigation -->
+    <div class="nav">
+      <button class="sidebar-button" [class.active]="selectedTab==='profile'" (click)="selectedTab='profile'">👤 Profile</button>
+      <button class="sidebar-button" [class.active]="selectedTab==='result'" (click)="selectedTab='result'">🎓 Result</button>
+    </div>
+    <div class="user-profile">
+      <div class="user-avatar">S</div>
+      <div class="user-info">
+        <div class="user-name">{{ student.name}}</div>
+        <div class="user-dept">{{student.department}}(full)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <header class="header">
+      <h1 class="page-title">Student Dashboard</h1>
+      <div class="header-action">
+        <button class="logOut-btn" (click)="logout()">Logout</button>
+      </div>
+    </header>
+
+    <!-- student-profile -->
+    <div class="profile-section" *ngIf="selectedTab==='profile'">
+        <div class="profile-header">
+          <h2>Student Profile</h2>
+          <p>Welcome <strong>{{student.name}}</strong> Here's your profile overview</p>
+        </div>
+        <div class="profile-card">
+          <h3>Student Details</h3>
+          <div class="profile-detail-container">
+            <div class="profile-field">
+              <p><strong>Roll No :</strong></p>
+              <p><strong>Name :</strong></p>
+              <p><strong>E-mail :</strong></p>
+              <p><strong>Department :</strong></p>
+              <p><strong>Semester :</strong></p>
+            </div>
+            <div class="profile-value">
+              <p>{{ student.roll}}</p>
+              <p>{{ student.name}}</p>
+              <p>{{ student.email}}</p>
+              <p>{{ student.department}}</p>
+              <p>{{ student.semester}}</p>
+            </div>
+          </div>
+        </div>
+        <h3 class="course-title">Enrolled Courses</h3>
+        <div class="course-details">
+          <table class="course-table" *ngIf="courses.length > 0; else noCourses">
+            <thead>
+              <tr>
+                <th>Courses Code</th>
+                <th>Course Name</th>
+                <!-- <th>Semester</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of courses">
+                <td>{{c.code}}</td>
+                <td>{{c.name}}</td>
+                <!-- <td>{{c.semester}}</td> -->
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #noCourses>
+            <p>No courses found.</p>
+          </ng-template>
+        </div>
+        <button class="result-btn" (click)="selectedTab = 'result'">👁️ View Result</button>
+    </div>
+
+    <!-- Student-result -->
+    <div class="result-section" *ngIf="selectedTab==='result'">
+      <div class="profile-header">
+        <h2>Result</h2>
+      </div>
+      <div class="result-detail">
+        <table class="result-table" *ngIf="result">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Max Marks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sub of result.subjects">
+              <td>{{sub.name}}</td>
+              <td>{{sub.marks}} / 100</td>
+              <td [ngClass]="{'grade-f': getGrade(sub.marks) === 'F'}">{{getGrade(sub.marks)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="summary">
+        <p><strong>Total : </strong>{{total}} / {{maxTotal}}</p>
+        <p><strong>Percentage :</strong> {{ percentage }}%</p>
+        <p><strong>Status :</strong>
+          <span [class.pass]="result.status === 'pass'" [class.fail]="result.status === 'fail'"> {{ result.status }}</span>
+        </p>
+      </div>
+
+      <div class="result-control-btn">
+        <button class="save-btn" (click)="printResult()">💾 Save</button>
+        <button class="print-btn" (click)="printResult()">🖨️ Print</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>

@@ -12,14 +12,14 @@ export class StudentService {
   }
 
   getProfile(): Observable<any> {
-    const token = localStorage.getItem('studentToken');
+    const token = localStorage.getItem('student');
     return this.http.get(`${this.baseUrl}/profile`, {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` })
     });
   }
 
   getResult(): Observable<any> {
-    const token = localStorage.getItem('studentToken');
+    const token = localStorage.getItem('student');
     return this.http.get(`${this.baseUrl}/result`, {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` })
     });

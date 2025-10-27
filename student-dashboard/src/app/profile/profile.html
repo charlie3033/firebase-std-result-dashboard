@@ -1,6 +1,49 @@
-<div *ngIf="student">
-  <h2>Welcome, {{ student.name }}</h2>
-  <p><strong>Roll:</strong> {{ student.roll }}</p>
-  <p><strong>Department:</strong> {{ student.department }}</p>
-  <p><strong>Semester:</strong> {{ student.semester }}</p>
+<div class="result-container" *ngIf="student; else loading">
+  <h2>Student Result</h2>
+
+  <div class="student-info">
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Roll:</strong> {{ student.roll }}</p>
+    <p><strong>Department:</strong> {{ student.department }}</p>
+    <p><strong>Semester:</strong> {{ student.semester }}</p>
+  </div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table id="resultTable" *ngIf="!error && subjects.length > 0">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Marks</th>
+        <th>Max Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sub of subjects">
+        <td>{{ sub.name }}</td>
+        <td>{{ sub.marks }}</td>
+        <td>{{ sub.maxMarks }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="summary" *ngIf="subjects.length > 0">
+    <p><strong>Total:</strong> {{ total }} / {{ maxTotal }}</p>
+    <p><strong>Percentage:</strong> {{ percentage }}%</p>
+    <p>
+      <strong>Status:</strong>
+      <span [class.status-pass]="percentage >= 40" [class.status-fail]="percentage < 40">
+        {{ status }}
+      </span>
+    </p>
+  </div>
+
+  <div class="actions">
+    <button (click)="printResult()">Print</button>
+    <button (click)="logout()">Logout</button>
+  </div>
 </div>
+
+<ng-template #loading>
+  <p>Loading result...</p>
+</ng-template>
