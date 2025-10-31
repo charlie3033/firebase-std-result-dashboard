@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { StudentService } from '../services/student.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +11,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './login.css',
 })
 export class Login {
-  private service = inject(StudentService);
   private router = inject(Router);
   private http = inject(HttpClient);
 
