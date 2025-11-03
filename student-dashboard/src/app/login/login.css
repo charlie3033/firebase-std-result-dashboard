@@ -76,9 +76,6 @@
   border-radius: 10px;
   width: 500px;
   border: 2px solid red;
-  /* box-shadow:
-    0 -4px 6px rgb(252, 61, 61),
-    -6px -12px 24px rgb(252, 61, 61); */
 }
 .login{
   justify-content: center;

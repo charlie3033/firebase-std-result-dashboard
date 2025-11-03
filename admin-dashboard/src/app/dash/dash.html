@@ -40,7 +40,7 @@
     <header class="header">
         <h1 id="page-title">Admin Dashboard</h1>
         <div class="header-action">
-          <button class="logOut-btn" (click)="logout()">Log Out</button>
+          <button class="logOut-btn" (click)="logout()">Logout</button>
         </div>
     </header>
     <!-- dashboard stats -->
@@ -74,7 +74,7 @@
       <div class="card">
         <!-- ----Quick actions------ -->
           <div class="quick-actions">
-            <h3>Quick Actions</h3>
+            <h3>Quick Options</h3>
             <div class="action-buttons">
               <button class="action-btn" (click)="selectedTab='grade'">📝 Update Grades</button>
               <button class="action-btn" (click)="prepareAddStudent()">👤 Add New Student</button>
@@ -588,7 +588,7 @@
             </table>
         </div>
       </div>
-      
+
 
       <ng-template #noCourses>
         <p class="no-course">No courses found for this department.</p>
