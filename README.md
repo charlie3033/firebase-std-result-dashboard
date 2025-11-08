@@ -90,4 +90,48 @@ Student
   - View results in dashboard
   - Download/print report
 
-  ![alt text](1.login.png)
+## 🎥 UI Screenshots
+
+### 🧑‍💼 Admin Dashboard  
+<!-- Admin dashboard screenshots -->
+<p align="center">
+  <img src="./screenshots/admin-screenshot1.png" width="45%" alt="Admin Dashboard 1" />
+  <img src="./screenshots/admin-screenshot2.png" width="45%" alt="Admin Dashboard 2" />
+</p>
+<p align="center">
+  <img src="./screenshots/admin-screenshot3.png" width="45%" alt="Admin Dashboard 3" />
+  <img src="./screenshots/admin-screenshot4.png" width="45%" alt="Admin Dashboard 4" />
+</p>
+<p align="center">
+  <img src="./screenshots/admin-screenshot5.png" width="45%" alt="Admin Dashboard 5" />
+  <img src="./screenshots/admin-screenshot6.png" width="45%" alt="Admin Dashboard 6" />
+</p>
+<p align="center">
+  <img src="./screenshots/admin-screenshot7.png" width="45%" alt="Admin Dashboard 7" />
+  <img src="./screenshots/admin-screenshot8.png" width="45%" alt="Admin Dashboard 8" />
+</p>
+<p align="center">
+  <img src="./screenshots/admin-screenshot9.png" width="45%" alt="Admin Dashboard 9" />
+  <img src="./screenshots/admin-screenshot10.png" width="45%" alt="Admin Dashboard 10" />
+</p>
+<p align="center">
+  <img src="./screenshots/admin-screenshot11.png" width="45%" alt="Admin Dashboard 11" />
+</p>
+
+### 👨‍🎓 Student Dashboard  
+<!-- Student dashboard screenshots -->
+<p align="center">
+  <img src="./screenshots/student-screenshot1.png" width="45%" alt="Student Dashboard 1" />
+  <img src="./screenshots/student-screenshot2.png" width="45%" alt="Student Dashboard 2" />
+</p>
+<p align="center">
+  <img src="./screenshots/student-screenshot3.png" width="45%" alt="Student Dashboard 3" />
+  <img src="./screenshots/student-screenshot4.png" width="45%" alt="Student Dashboard 4" />
+</p>
+<p align="center">
+  <img src="./screenshots/student-screenshot5.png" width="45%" alt="Student Dashboard 5" />
+  <img src="./screenshots/student-screenshot6.png" width="45%" alt="Student Dashboard 6" />
+</p>
+<p align="center">
+  <img src="./screenshots/student-screenshot7.png" width="45%" alt="Student Dashboard 7" />
+</p>
