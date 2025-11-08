@@ -95,8 +95,8 @@ Student
 ### 🧑‍💼 Admin Dashboard  
 <!-- Admin dashboard screenshots -->
 <p align="center">
-  <img src="./screenshots/admin-screenshot1.png" width="45%" alt="Admin Dashboard 1" />
-  <img src="./screenshots/admin-screenshot2.png" width="45%" alt="Admin Dashboard 2" />
+  <img src="./screenshots/1.login.png" width="45%" alt="Admin Dashboard 1" />
+  <img src="./screenshots/2.dash.png" width="45%" alt="Admin Dashboard 2" />
 </p>
 <p align="center">
   <img src="./screenshots/admin-screenshot3.png" width="45%" alt="Admin Dashboard 3" />
