@@ -32,6 +32,8 @@ export class Login {
         this.router.navigate(['/dash']);
       },
       error: (err) => {
+        console.log(err);
+        alert("Invalid email or password!");
         this.error = err?.message || 'Login failed. Please try again.';
       }
   });
