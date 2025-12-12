@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const Student = require("../models/Student");
 const Result = require("../models/Result");
 const Course = require("../models/Course");
-const PendingGrades = require("../models/PendingGrades");
+const PendingGrades = require("../models/pendingGrades");
 
 // -------------------- GET all students --------------------
 router.get("/", async (req, res) => {
