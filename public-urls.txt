@@ -1,0 +1,16 @@
+---public URLs---
+
+------mongoDB-----
+name:  admin
+pass:  projectadmin
+0.0.0.0/0
+mongodb+srv://admin:projectadmin@cluster0.3ascrdt.mongodb.net/?appName=cluster0
+
+
+------backend------
+https://result-server-po2j.onrender.com
+
+
+------frontend------
+https://angular-admin-dashboard-ten.vercel.app/login
+https://angular-student-dashboard.vercel.app/login
