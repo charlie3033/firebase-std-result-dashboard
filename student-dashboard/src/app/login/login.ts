@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class Login {
   error = '';
 
   login() {
-  this.http.post('https://result-server-po2j.onrender.com/api/students/login', {
+  this.http.post(`${environment.apiUrl}/students/login`, {
       email: this.email.trim(),
       password: this.password.trim()
   })

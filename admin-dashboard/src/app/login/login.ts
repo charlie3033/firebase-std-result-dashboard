@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class Login {
       password: this.password
     };
 
-    this.http.post<any>(' https://result-server-po2j.onrender.com/api/admin/login', credentials).subscribe({
+    this.http.post<any>(`${environment.apiUrl}/admin/login`, credentials).subscribe({
       next: res => {
         localStorage.setItem('token', res.token);
         localStorage.setItem('adminname',this.username);
