@@ -64,7 +64,20 @@ export class Dash implements OnInit {
 
   courses: any[] = [];
 
+  dept: any = { name: '', code: '', head: ''};
   constructor(private studentService: StudentService, private cdr: ChangeDetectorRef,private http: HttpClient,private router: Router) {}
+
+  semester1 = [
+    { code: '', name: '', semester: 1 },
+    { code: '', name: '', semester: 1 },
+    { code: '', name: '', semester: 1 }
+  ];
+
+  semester2 = [
+    { code: '', name: '', semester: 2 },
+    { code: '', name: '', semester: 2 },
+    { code: '', name: '', semester: 2 }
+  ];
 
 
 
@@ -207,6 +220,7 @@ export class Dash implements OnInit {
     this.resultStudent = null;
     this.newStudent = { name: '', department: '', semester: '' };
   }
+
   cancelAll() {
     this.selectedTab = 'AllResultTable';
     this.editInfoStudent = null;
@@ -547,6 +561,15 @@ getCoursesByDeptAndSem(dept: string, sem: number){
   return this.courses.filter(
     c => c.department === dept && c.semester === sem);
 }
+
+getTotalStudentsInDept(deptCode: string): number {
+  return this.students.filter(s => s.department === deptCode).length;
 }
+
+
+
+
+}
+
 
 

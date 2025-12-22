@@ -311,8 +311,8 @@
             <label>Department</label>
             <select name="department" [(ngModel)]="newStudent.department" required>
               <option value="" disabled selected>Select Department</option>
-              <option *ngFor="let dept of departments" [value]="dept.name">
-                {{ dept.name }}
+              <option *ngFor="let dept of departments" [value]="dept.code">
+                {{dept.code}} ( {{ dept.name }} )
               </option>
             </select>
           </div>
@@ -558,15 +558,32 @@
   <div *ngIf="selectedTab==='dept'" class="tab">
     <div class="main-header">
         <h2>Departments & Courses</h2>
-        <p>Log of activities performed by admins</p>
+        <p>Manage Department and Courses of the institute</p>
     </div>
       <div class="std-card">
+        <div class="top-controls">
+          <button class="add-std-btn" (click)="selectedTab='addDept'">
+            ➕ Add New Department & Courses
+          </button>
+        </div>
+        <hr>
       <div *ngIf="departments.length === 0">
         <p>No departments found.</p>
       </div>
 
     <div *ngFor="let dept of departments" class="department-card">
-      <h3>{{ dept.name }}</h3>
+      <div style="display: flex; justify-content: space-between;">
+        <div>
+          <h3 style="margin-bottom: 0px;">{{ dept?.code }} ( {{dept?.name}} )</h3>
+          <p><strong>Head of Department : </strong> {{ dept?.head }}</p>
+        </div>
+        <div>
+          <p style="margin-right: 30px;">Total Number Of Students : <span style="font-weight: bolder;">{{ getTotalStudentsInDept(dept.code) }}</span></p>
+          <button class="btn update-dept" (click)="loadActivityLog()">Update</button>
+          <button class="btn delete-dept" [disabled]="getTotalStudentsInDept(dept.code) > 0">Delete</button>
+        </div>
+      </div>
+
 
       <div class="semester-outer-block">
         <div *ngFor="let sem of [1, 2]" class="semester-block">
@@ -580,7 +597,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let c of getCoursesByDeptAndSem(dept.name, sem)">
+                <tr *ngFor="let c of getCoursesByDeptAndSem(dept.code, sem)">
                   <td>{{ c.code }}</td>
                   <td>{{ c.name }}</td>
                   <td>{{ c.semester }}</td>

@@ -52,6 +52,10 @@ router.delete("/roll/:roll", async (req, res) => {
 
     await Student.deleteOne({ _id: student._id });
     await Result.deleteMany({ studentId: student._id });
+    if (await PendingGrades.findOne({ studentId: student._id })){
+      await PendingGrades.deleteOne({ studentId: student._id });
+    }
+    
 
     res.json({ message: `Student ${req.params.roll} deleted` });
   } catch (err) {

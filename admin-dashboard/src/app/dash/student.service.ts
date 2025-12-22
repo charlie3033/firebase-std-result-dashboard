@@ -71,10 +71,9 @@ export class StudentService {
   }
 
   addActivityLog(message: string){
-    return this.http.post(`${this.baseUrl}/activity-log`, {message},{
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
+    return this.http.post(`${this.baseUrl}/activity-log`, {
+      user: localStorage.getItem('adminname'),
+      message: message
     });
   }
 
@@ -82,4 +81,7 @@ export class StudentService {
   getTotalPendingGrades(){
     return this.http.get<{totalPending: number, students: any[]}>(`${this.baseUrl}/pendingGrades`);
   }
+
+
+
 }

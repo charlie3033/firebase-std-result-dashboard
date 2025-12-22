@@ -4,11 +4,11 @@ const router = express.Router();
 const ActivityLog = require("../models/ActivityLog");
 
 // Save new log
-router.post("/", async (req, res) => {
+router.post("/",async (req, res) => {
   try {
     const log = await ActivityLog.create({
-      adminname: req.admin.name,
-      action: req.body.action
+      user: req.body.user,
+      message: req.body.message
     });
     
     res.json(log);

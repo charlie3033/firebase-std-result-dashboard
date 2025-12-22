@@ -1125,7 +1125,7 @@ margin-bottom: 10px;
 }
 .grade-styled-table thead {
   position: sticky;
-  top: 0; 
+  top: 0;
   z-index: 5;
   background-color: #f4f6f8;
 
@@ -1138,7 +1138,7 @@ margin-bottom: 10px;
 
 .grade-styled-table tbody {
   display: block;
-  max-height: 549px; 
+  max-height: 549px;
   overflow-y: auto;
   width: 100%;
 }
@@ -1158,4 +1158,54 @@ margin-bottom: 10px;
 }
 .grade-styled-table tr:nth-child(even) {
   background: #fafafa;
+}
+
+.delete-dept {
+  background-color: #DC3545;
+  color: #FFFFFF;
+  border: 1px solid #DC3545;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-dept:hover {
+  background-color: #E4606D;
+  border-color: #E4606D;
+  color: #FFFFFF;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.delete-dept:disabled {
+  background-color: #E4606D;
+}
+.update-dept {
+  background-color: #3f8cff;
+  color: #FFFFFF;
+  border: 1px solid #0D6EFD;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-left: 60px;
+}
+
+.update-dept:hover {
+  background-color: #0B5ED7;
+  border-color: #0A58CA;
+}
+
+.update-dept:active {
+  background-color: #0A58CA;
+  border-color: #0A58CA;
+}
+
+.update-dept:disabled {
+  background-color: #9EC5FE;
+  border-color: #9EC5FE;
+  color: #FFFFFF;
+  cursor: not-allowed;
 }
