@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ import { environment } from '../../environments/environment';
 export class Login {
   username='';
   password='';
-  constructor(private http: HttpClient,private router: Router){}
+  email = '';
+  constructor(private http: HttpClient,private router: Router,private auth: AuthService){}
 
   onSubmit(){
     const credentials = {
@@ -25,9 +27,16 @@ export class Login {
 
     this.http.post<any>(`${environment.apiUrl}/admin/login`, credentials).subscribe({
       next: res => {
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('adminname',this.username);
-        this.router.navigate(['/admin/dashboard']);
+
+        this.auth.login(this.email, this.password).then(() => {
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('adminname',this.username);
+          this.router.navigate(['/admin/dashboard']);
+        }).catch(err =>alert(err.message));
+
+        // localStorage.setItem('token', res.token);
+        // localStorage.setItem('adminname',this.username);
+        // this.router.navigate(['/admin/dashboard']);
       },error: ()=>{
         alert('Invalid credentials');
       }
