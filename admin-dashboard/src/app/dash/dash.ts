@@ -9,7 +9,7 @@ import { saveAs } from 'file-saver';
 import { forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { AuthService } from './../login/auth.service';
 
 @Component({
   selector: 'app-dash',
@@ -73,7 +73,7 @@ export class Dash implements OnInit {
   deptSemesters: any[] = [];
   deptlist: any[] = [];
 
-  constructor(private studentService: StudentService, private cdr: ChangeDetectorRef,private http: HttpClient,private router: Router) {}
+  constructor(private studentService: StudentService, private cdr: ChangeDetectorRef,private http: HttpClient,private router: Router,private authService: AuthService) {}
 
   semester1 = [
     { code: '', name: '', semester: 1 },
@@ -540,6 +540,7 @@ viewSingleResult(student: any) {
 //logout button
 logout(){
   localStorage.removeItem('token');
+  this.authService.logout();
 
   this.showNotification("Logged out successfully!","info");
 

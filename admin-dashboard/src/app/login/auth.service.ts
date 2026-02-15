@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EnvironmentInjector, inject, Injectable, runInInjectionContext } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 
 @Injectable({
@@ -6,14 +6,16 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 })
 export class AuthService {
 
-  constructor(private auth: Auth) {}
+  private auth = inject(Auth);
+  private injector = inject(EnvironmentInjector);
 
   register(email: string, password: string) {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
   login(email: string, password: string) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+    return runInInjectionContext(this.injector, () =>
+      signInWithEmailAndPassword(this.auth, email, password));
   }
 
   logout() {

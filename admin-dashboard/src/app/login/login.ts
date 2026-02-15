@@ -20,26 +20,27 @@ export class Login {
   constructor(private http: HttpClient,private router: Router,private auth: AuthService){}
 
   onSubmit(){
-    const credentials = {
-      username: this.username,
-      password: this.password
-    };
+    // const credentials = {
+    //   username: this.username,
+    //   password: this.password
+    // };
 
-    this.http.post<any>(`${environment.apiUrl}/admin/login`, credentials).subscribe({
-      next: res => {
-
-        this.auth.login(this.email, this.password).then(() => {
-          localStorage.setItem('token', res.token);
+    // this.http.post<any>(`${environment.apiUrl}/admin/login`, credentials).subscribe({
+    //   next: res => {
+    //     this.email = res.email;
+        this.auth.login(this.username, this.password)
+        .then(() => {
+          // localStorage.setItem('token', res.token);
           localStorage.setItem('adminname',this.username);
           this.router.navigate(['/admin/dashboard']);
-        }).catch(err =>alert(err.message));
+        }).catch(err =>alert('Invalid credentials'));
 
         // localStorage.setItem('token', res.token);
         // localStorage.setItem('adminname',this.username);
         // this.router.navigate(['/admin/dashboard']);
-      },error: ()=>{
-        alert('Invalid credentials');
-      }
-    });
+    //   },error: ()=>{
+    //     alert('Invalid credentials');
+    //   }
+    // });
   }
 }
