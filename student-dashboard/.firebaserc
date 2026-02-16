@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "std-result-dashboard"
+  },
+  "targets": {
+    "std-result-dashboard": {
+      "hosting": {
+        "student": [
+          "student-std"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

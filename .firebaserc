@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "std-result-dashboard"
+  },
+  "targets": {
+    "std-result-dashboard": {
+      "hosting": {
+        "student": [
+          "student-std"
+        ],
+        "admin": [
+          "admin-std-e198e"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

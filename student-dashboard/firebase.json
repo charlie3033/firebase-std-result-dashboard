@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "dist/admin-dashboard/browser",
+    "target": "student",
+    "public": "dist/student-dashboard/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
