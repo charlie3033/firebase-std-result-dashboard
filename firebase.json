@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "admin",
-      "public": "admin-dashboard/dist/admin-dashboard",
+      "public": "admin-dashboard/dist/admin-dashboard/browser",
       "ignore": [
         "firebase.json",
         "**/.*",

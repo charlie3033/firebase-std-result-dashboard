@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
+const html2canvas = (await import('html2canvas')).default;
 import jsPDF from 'jspdf';
 import { environment } from '../../environments/environment';
 
