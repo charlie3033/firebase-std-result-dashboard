@@ -1,5 +1,5 @@
 require("dotenv").config();
-console.log("Connecting to:", process.env.MONGO_URI);
+console.log("Connecting to:", process.env.MONGO_URL);
 
 const express = require("express");
 const mongoose = require("mongoose");
