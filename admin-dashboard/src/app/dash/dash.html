@@ -98,7 +98,7 @@
             Filter by Department:
             <select class="filter" [(ngModel)]="filterDept" (change)="loadStudents()">
               <option value="">All</option>
-              <option *ngFor="let d of departments" [value]="d.code">{{d.name}}</option>
+              <option *ngFor="let d of departments" [value]="d.code">({{d.code}}){{d.name}}</option>
             </select>
           </label>
 
