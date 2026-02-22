@@ -25,6 +25,7 @@ export class Dash {
   maxTotal = 0;
   percentage = 0;
   uploadFlag = true;
+  deptFullName = '';
 
   private baseUrl = environment.apiUrl;
   constructor(private cdr: ChangeDetectorRef,private http: HttpClient,private router: Router){}
@@ -41,6 +42,7 @@ export class Dash {
     this.loadCourses();
     this.loadResult();
     this.loadPendingStatus();
+    this.loadDepartmentName();
   }
 
   loadCourses(){
@@ -132,12 +134,18 @@ export class Dash {
   }
 
 
-  fullDept(dept: string): any{
-    if(dept === 'IT') return 'Information Technology';
-    if(dept === 'CIV') return 'Civil Engineering';
-    if(dept === 'CSE') return 'Computer Science';
-    if(dept === 'ME') return 'Mechanical Engineering';
-    if(dept === 'ECE') return 'Electronics and Communication';
+  loadDepartmentName(){
+    this.http.get<{name: string}>(`${this.baseUrl}/departments/${this.student.department}`)
+    .subscribe({
+      next: (res) => {
+        this.deptFullName = res.name;
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Error fetching department name:', err);
+        this.deptFullName = this.student.department; // Fallback to original
+      }
+    });
   }
 
   loadPendingStatus(){

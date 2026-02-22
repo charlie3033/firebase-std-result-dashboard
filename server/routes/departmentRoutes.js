@@ -16,6 +16,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:code", async (req, res) => {
+  try {
+    const deptCode = req.params.code;
+    const department = await Department.findOne({ code: deptCode });
+    if (!department) {
+      return res.status(404).json({ error: "Department not found" });
+    }
+    res.json(department);
+  } catch (err) {
+    console.error("Error fetching department:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const newDepartment = new Department(req.body);
